@@ -61,7 +61,7 @@ int reg(int myfd, struct msg *prm)
 	g_res = mysql_store_result(conn);
 	if(mysql_num_rows(g_res) != 0)
 	{
-		strcpy(sm->data, "reg failed");
+		strcpy(sm->data, "用户名已存在.");
 		sm->len = strlen(sm->data);
 		ret = send(myfd, sm, sizeof(struct msg), 0);		
 		if(ret <= 0)
